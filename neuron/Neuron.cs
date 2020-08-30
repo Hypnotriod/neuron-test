@@ -1,5 +1,4 @@
 ﻿/*
- * Created by SharpDevelop.
  * User: IPikin
  * Date: 31-Jul-18
  * Time: 14:52
