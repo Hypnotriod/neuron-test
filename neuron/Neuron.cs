@@ -15,15 +15,14 @@ namespace NeyronTest.neuron
         protected int id;
         protected float output;
         protected float error;
-        protected float learningRate = 0.1f;
 		
         static readonly Random rnd = new Random();
         static int idCounter;
 		
-        public Neuron(float learningRate)
+        public Neuron(float learningRate = 0.1f)
         {
             this.id = GetNewId();
-            this.learningRate = learningRate;
+            this.LearningRate = learningRate;
         }
 		
         protected static int GetNewId()
@@ -35,10 +34,7 @@ namespace NeyronTest.neuron
 		
         public float Input  { get; set; }
 		
-        public float LearningRate {
-            get { return learningRate; }
-            set { learningRate = value; }
-        }
+        public float LearningRate { get; set; }
 		
         public float Output { get { return output; } }
 		
@@ -87,7 +83,7 @@ namespace NeyronTest.neuron
             if (inputNeurons != null) {
                 foreach (Neuron neuron in inputNeurons) {
                     deltaWeight = error * output * (1 - output);
-                    weights[neuron] -= neuron.output * deltaWeight * learningRate;
+                    weights[neuron] -= neuron.output * deltaWeight * LearningRate;
                     neuron.LearnNext(weights[neuron] * deltaWeight);
                 }
             }
