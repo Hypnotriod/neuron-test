@@ -20,7 +20,7 @@ namespace NeyronTest
 		const int OUTPUT_NEURONS_COUNT = 2;
 		const int TRACE_LAST_LEARN_ITERATIONS = 10;
 		
-		const string DECIMAL_FORMAT = "0.######";
+		const string DECIMAL_FORMAT = "0.000000";
 		
 		readonly NeuronsLayer inputNeurons = new NeuronsLayer(INPUT_NEURONS_COUNT, LEARNING_RATE);
 		readonly NeuronsLayer hiddenNeurons = new NeuronsLayer(HIDDEN_NEURONS_COUNT, LEARNING_RATE);

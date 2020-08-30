@@ -34,8 +34,6 @@ namespace NeyronTest.lib
 		
 		public float Input  { get; set; }
 		
-		public float Expected  { get; set; }
-		
 		public float LearningRate {
 			get { return learningRate; }
 			set { learningRate = value; }
@@ -78,7 +76,6 @@ namespace NeyronTest.lib
 		
 		public void Learn(float expected)
 		{
-			Expected = expected;
 			LearnNext(output - expected);
 		}
 		
