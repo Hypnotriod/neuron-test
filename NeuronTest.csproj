@@ -45,13 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="lib\Neuron.cs" />
-    <Compile Include="lib\NeuronsLayer.cs" />
+    <Compile Include="neuron\Neuron.cs" />
+    <Compile Include="neuron\NeuronsLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="lib" />
+    <Folder Include="neuron" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
