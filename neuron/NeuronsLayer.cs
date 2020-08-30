@@ -6,56 +6,58 @@
 using System;
 using System.Collections.Generic;
 
-namespace NeyronTest.lib
+namespace NeyronTest.neuron
 {
-	public class NeuronsLayer
-	{
-		protected int id;
-		protected List<Neuron> neurons;
+    public class NeuronsLayer
+    {
+        protected int id;
+        protected List<Neuron> neurons;
 		
-		static int idCounter;
+        static int idCounter;
 		
-		public NeuronsLayer(int neuronsCount, float learningRate)
-		{
-			id = GetNewId();
+        public NeuronsLayer(int neuronsCount, float learningRate)
+        {
+            id = GetNewId();
 			
-			neurons = new List<Neuron>(neuronsCount);
-			while (neuronsCount-- > 0) neurons.Add(new Neuron(learningRate));
-		}
+            neurons = new List<Neuron>(neuronsCount);
+            while (neuronsCount-- > 0)
+                neurons.Add(new Neuron(learningRate));
+        }
 		
-		protected static int GetNewId() {
-			return idCounter++;
-		}
+        protected static int GetNewId()
+        {
+            return idCounter++;
+        }
 		
-		public int Id { get { return id; } }
+        public int Id { get { return id; } }
 		
-		public List<Neuron> Neurons {
-			get { return neurons; }
-		}
+        public List<Neuron> Neurons {
+            get { return neurons; }
+        }
 		
-		public void SetInputNeuronsLayer(NeuronsLayer inputNeuronsLayer)
-		{
-			foreach (Neuron neuron in neurons)
-				neuron.SetInputNeurons(inputNeuronsLayer.Neurons);
-		}
+        public void SetInputNeuronsLayer(NeuronsLayer inputNeuronsLayer)
+        {
+            foreach (Neuron neuron in neurons)
+                neuron.SetInputNeurons(inputNeuronsLayer.Neurons);
+        }
 		
-		public void Compute()
-		{
-			foreach (Neuron neuron in neurons)
-				neuron.Compute();
-		}
+        public void Compute()
+        {
+            foreach (Neuron neuron in neurons)
+                neuron.Compute();
+        }
 		
-		public void Learn(float[] expectedData)
-		{
-			Compute();
-			for (int i = 0 ; i < neurons.Count; i++)
-				neurons[i].Learn(expectedData[i]);
-		}
+        public void Learn(float[] expectedData)
+        {
+            Compute();
+            for (int i = 0; i < neurons.Count; i++)
+                neurons[i].Learn(expectedData[i]);
+        }
 		
-		public void SetInputData(float[] inputData)
-		{
-			for (int i = 0 ; i < neurons.Count; i++)
-				neurons[i].Input = inputData[i];
-		}
-	}
+        public void SetInputData(float[] inputData)
+        {
+            for (int i = 0; i < neurons.Count; i++)
+                neurons[i].Input = inputData[i];
+        }
+    }
 }
