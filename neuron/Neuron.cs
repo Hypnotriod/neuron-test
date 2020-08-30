@@ -10,6 +10,8 @@ namespace NeyronTest.neuron
 {
     public class Neuron
     {
+        public const float DEFAULT_LEARNING_RATE = 0.1f;
+        
         protected Dictionary<Neuron, float> weights;
         protected List<Neuron> inputNeurons;
         protected int id;
@@ -19,7 +21,7 @@ namespace NeyronTest.neuron
         static readonly Random rnd = new Random();
         static int idCounter;
 		
-        public Neuron(float learningRate = 0.1f)
+        public Neuron(float learningRate = DEFAULT_LEARNING_RATE)
         {
             this.id = GetNewId();
             this.LearningRate = learningRate;

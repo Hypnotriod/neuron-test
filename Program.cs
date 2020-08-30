@@ -13,7 +13,7 @@ namespace NeyronTest
     class Program
     {
         const double LEARN_COUNT = 1e5;
-        const float LEARNING_RATE = 0.1f;
+        const float LEARNING_RATE = Neuron.DEFAULT_LEARNING_RATE;
         
         const int INPUT_NEURONS_COUNT = 3;
         const int HIDDEN_NEURONS_COUNT = 8;
