@@ -41,7 +41,7 @@ namespace NeyronTest
 			new float[]{1, 0, 0}
 		};
 		
-		public static void Main(string[] args)
+		public static void Main()
 		{
 			new Program().Run();
 		}
