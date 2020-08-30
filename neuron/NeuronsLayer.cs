@@ -12,7 +12,6 @@ namespace NeyronTest.lib
 	{
 		protected int id;
 		protected List<Neuron> neurons;
-		protected NeuronsLayer inputNeuronsLayer;
 		
 		static int idCounter;
 		
@@ -36,7 +35,6 @@ namespace NeyronTest.lib
 		
 		public void SetInputNeuronsLayer(NeuronsLayer inputNeuronsLayer)
 		{
-			this.inputNeuronsLayer = inputNeuronsLayer;
 			foreach (Neuron neuron in neurons)
 				neuron.SetInputNeurons(inputNeuronsLayer.Neurons);
 		}
