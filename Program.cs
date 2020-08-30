@@ -25,26 +25,32 @@ namespace NeyronTest
 		
 		const string DECIMAL_FORMAT = "0.######";
 		
-		static readonly NeuronsLayer inputNeurons = new NeuronsLayer(INPUT_NEURONS_COUNT, LEARNING_RATE);
-		static readonly NeuronsLayer hiddenNeurons = new NeuronsLayer(HIDDEN_NEURONS_COUNT, LEARNING_RATE);
-		static readonly NeuronsLayer outputNeurons = new NeuronsLayer(OUTPUT_NEURONS_COUNT, LEARNING_RATE);
+		readonly NeuronsLayer inputNeurons = new NeuronsLayer(INPUT_NEURONS_COUNT, LEARNING_RATE);
+		readonly NeuronsLayer hiddenNeurons = new NeuronsLayer(HIDDEN_NEURONS_COUNT, LEARNING_RATE);
+		readonly NeuronsLayer outputNeurons = new NeuronsLayer(OUTPUT_NEURONS_COUNT, LEARNING_RATE);
 		
-		static readonly Dictionary<float[], float[]> learnDataInOutMap = new Dictionary<float[], float[]>() {
+		readonly Dictionary<float[], float[]> learnDataInOutMap = new Dictionary<float[], float[]>() {
 			{ new float[]{0, 0, 0}, new float[]{1, 0} },
 			{ new float[]{0, 0, 1}, new float[]{0, 0} },
 			{ new float[]{0, 1, 1}, new float[]{0, 0} },
 			{ new float[]{1, 1, 1}, new float[]{1, 1} },
 		};
 		
-		static readonly float[][] testData = {
+		readonly float[][] testData = {
 			new float[]{1, 0, 1},
 			new float[]{1, 0, 0}
 		};
 		
-		
 		public static void Main(string[] args)
 		{
+			new Program().Run();
+		}
+		
+		public Program() {
 			InInitialize();
+		}
+		
+		public void Run() {
 			RunLearning();
 			DoTests();
 			
@@ -53,13 +59,13 @@ namespace NeyronTest
 			Console.ReadKey(true);
 		}
 		
-		static void InInitialize()
+		void InInitialize()
 		{
 			hiddenNeurons.SetInputNeuronsLayer(inputNeurons);
 			outputNeurons.SetInputNeuronsLayer(hiddenNeurons);
 		}
 		
-		static void RunLearning()
+		void RunLearning()
 		{
 			Console.WriteLine("Start Learning . . . ");
 			
@@ -81,7 +87,7 @@ namespace NeyronTest
 			}
 		}
 		
-		static void TraceLearnResult(float[] inputData, float[] outputData)
+		void TraceLearnResult(float[] inputData, float[] outputData)
 		{
 			Console.WriteLine("Input data: [" + String.Join(",", inputData) + "]");
 			
@@ -95,7 +101,7 @@ namespace NeyronTest
 			}
 		}
 		
-		static void DoTests()
+		void DoTests()
 		{
 			Console.WriteLine("Tests");
 			int i = 0;
